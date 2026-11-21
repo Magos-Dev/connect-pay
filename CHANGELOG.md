@@ -102,3 +102,11 @@
 - A lista de administradores fica em `ADMINS` no `index.html`. O bloqueio no navegador é de interface; a permissão real vem do `supabase-perfis.sql` (não executado), que libera o administrador pelo e-mail do login.
 - Também: gerador de ID com alternativa quando `crypto.randomUUID` não existe.
 - Testado com Supabase simulado (menu, abas, consultas, dono preservado). Pendente: rodar o SQL e testar com as duas contas reais.
+
+## 2026-11-21 — Catálogo de venda e Cobranças
+- Catálogo de venda (novo botão no menu): o administrador cadastra, edita, ativa/desativa e exclui aparelhos (modelo, condição, valor à vista, entrada mínima/máxima, custo e taxa mensal) e vê parcela, total e lucro simulados (12x por padrão, trocável). O usuário comum vê apenas modelo, valor de venda e entrada dos aparelhos ativos. No cadastro da análise há o seletor "Escolher do catálogo", que preenche modelo, valor, entrada (e custo/taxa para o administrador).
+- Exige rodar `supabase-catalogo.sql` (não executado): cria `cp_catalogo` (leitura para todos, só ativos para o usuário comum; escrita só do administrador) e `cp_catalogo_custos` (custo e taxa, só administrador). Sem o SQL a tela mostra o aviso.
+- Cobranças (novo botão): abas "A receber" (total a receber, recebido, inadimplentes, tabela por cliente com progresso, próximo vencimento, situação, parcelas expansíveis com Cobrar e Marcar como pago), "Cobranças enviadas" (registro de cada envio) e "Regras de bloqueio" (faixas de atraso e lista de aparelhos a bloquear após N dias). Disponível para todos os usuários, cada um com seus clientes (administrador vê todos).
+- Diferenças em relação ao MVloc: não há geração de PIX nem integração Asaas; "Cobrar" e "WhatsApp" abrem o WhatsApp com a mensagem pronta e registram o envio. O bloqueio do aparelho (MDM) continua manual. A coluna "Cobrança" mostra "Manual" ou a data do último envio.
+- Dados novos dentro de `observacoes` (sem mudar tabelas existentes): lista de cobranças enviadas. Arquivos alterados: `index.html`; novo `supabase-catalogo.sql`.
+- Testado no navegador com Supabase simulado (somas conferidas; fórmula do catálogo igual à da foto: 12x R$ 121,08, total R$ 2.202,96, lucro R$ 1.202,96). Pendente: rodar o SQL e testar com dados reais.
