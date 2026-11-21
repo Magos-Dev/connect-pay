@@ -74,3 +74,12 @@
 - Solicitação: gráficos grandes demais na página.
 - Gráficos agora têm altura fixa menor (colunas 240 px, área 220 px, anel 150 px) e usam a largura real do espaço, sem esticar em telas grandes. Conteúdo limitado a 1120 px de largura, indicadores menores e redesenho ao redimensionar a janela.
 - Arquivos alterados: `index.html`. Testado em janela de 1600 px com dados simulados.
+
+## 2026-11-21 — Saúde do negócio no Dashboard
+- Solicitação: verificação geral da saúde do sistema (inadimplência, lucro por venda, a receber), com base nas telas do MVloc enviadas.
+- Novo bloco "Saúde do negócio" (Saudável / Atenção / Crítico) com alertas, recebido, a receber, inadimplência (% e nº de clientes), lucro previsto, lucro até agora, markup, ROI, MRR, ticket médio, investimento e faixas de atraso (1–15, 16–30, +30 dias).
+- Novas tabelas: lucro por contrato, parcelas a receber (marcar como paga / desfazer) e previsto x recebido por mês.
+- Novos dados, dentro de `observacoes` (sem mudar o schema): campo "Custo real do aparelho" no cadastro e lista de parcelas pagas. Sem custo informado, usa o valor de referência (sinalizado com "(ref.)").
+- Regras assumidas: entrada (caução) conta como recebida na aprovação; vencimentos mensais a partir do "Primeiro vencimento"; custo = custo real ou valor de referência.
+- Limite: só considera clientes cadastrados no Connect Pay. Nenhum dado do MVloc foi copiado para o código.
+- Arquivos alterados: `index.html`. Testado com dados simulados (somas conferidas à mão); pagamento testado com Supabase simulado. Pendente: gravação real no Supabase.
