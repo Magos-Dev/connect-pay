@@ -63,3 +63,9 @@
 - Definições: entrada = caução inicial; total/montante = entrada + parcela × nº de mensalidades (mesma conta da simulação).
 - Gráficos feitos em HTML/CSS, sem biblioteca externa. Dados vindos dos mesmos registros de Clientes salvos.
 - Arquivos alterados: `index.html`. Testado no navegador com dados simulados (totais conferidos); pendente: dados reais.
+
+## 2026-11-21 — Dashboard com gráficos verticais
+- Solicitação: trocar as barras horizontais por gráficos como o da referência.
+- Faixa de indicadores no topo (clientes, aprovados com taxa, entradas aprovadas, montante total).
+- Gráfico de colunas verticais por cliente aprovado (entrada, parcela e total), anel de situação com % de aprovados e gráfico de área curva com o montante acumulado dos aprovados. Tabela de detalhamento mantida.
+- Gráficos em SVG, sem biblioteca externa; na tela estreita rolam na horizontal. Arquivos alterados: `index.html`. Testado com dados simulados (soma conferida).
