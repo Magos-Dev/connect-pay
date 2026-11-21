@@ -88,3 +88,9 @@
 - Novo painel "Investimento e retorno" no Dashboard: investimento total (custo dos aparelhos), retorno recebido, falta recuperar, retorno previsto, lucro previsto, retorno sobre o investimento, barra "% do investimento já voltou" e gráfico por cliente (investimento x recebido x previsto).
 - Custo do aparelho agora pode ser digitado direto na tabela "Lucro por contrato" (salva ao sair do campo). Vazio = usa o valor de referência.
 - O card "Investimento" saiu de "Saúde do negócio" para não duplicar. Arquivos alterados: `index.html`. Testado com dados simulados (somas conferidas) e Supabase simulado.
+
+## 2026-11-21 — blocos recolhíveis
+- Solicitação: cada aba poder recolher e expandir.
+- Todo bloco (painel) das abas Nova análise, Clientes salvos (incluindo os grupos Aprovados/Reprovados), Dashboard, Documentos e Backup recolhe/expande ao clicar no título (ou Enter/Espaço), com seta indicando o estado. O estado é lembrado no navegador e não se perde ao atualizar os dados; "Calcular análise" reabre o resultado.
+- Menu lateral com botão "Recolher menu" (modo só ícones, lembrado no navegador); oculto no celular.
+- Arquivos alterados: `index.html`. Testado no navegador com dados simulados.
