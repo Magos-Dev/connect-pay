@@ -149,3 +149,10 @@
 - Simulação: informando a entrada (dentro do mínimo e do máximo do aparelho), mostra o valor restante e a parcela e o total em 4, 6, 8, 12, 16, 18 e 24 vezes (administrador também vê o lucro). O usuário comum usa a função `cp_simular_catalogo` do Supabase, que calcula sem expor taxa nem custo.
 - Exige rodar `supabase-catalogo-disponibilidade.sql` (não executado): libera a leitura de todos os aparelhos e cria a função de simulação. Sem ele o usuário comum continua vendo só os disponíveis e a simulação avisa o que fazer; o administrador simula normalmente.
 - Substitui a galeria em tela cheia anterior. Arquivos alterados: `index.html`; novo `supabase-catalogo-disponibilidade.sql`. Testado com Supabase simulado (simulação de R$ 500 de entrada, limites, indisponível).
+
+## 2026-11-21 — Catálogo: botão Disponível / Indisponível
+- Solicitação: marcar o aparelho como indisponível com um clique ao vender, sem perder a edição.
+- Cada aparelho tem um botão na lateral esquerda: "● Disponível" (verde) e "○ Indisponível" (cinza). Um clique alterna, sem confirmação.
+- O administrador passa a ver os indisponíveis por padrão ("Mostrar indisponíveis" marcado), com a linha esmaecida e borda tracejada. Detalhes, Editar, Excluir e o próprio botão continuam ativos; o aparelho não muda de posição ao alternar.
+- Indisponível some do seletor do cadastro e da simulação e aparece com selo "Indisponível" para o usuário comum.
+- Arquivos alterados: `index.html`. Testado com Supabase simulado.
