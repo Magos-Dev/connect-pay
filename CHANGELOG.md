@@ -33,3 +33,11 @@
 - Testes realizados: sintaxe JS e cálculo/risco com os valores do cliente de teste (mensalidade R$ 396,36, risco Médio).
 - Testes pendentes: envio real de arquivos e RLS do Storage com duas contas.
 - Rollback: reverter o commit; no Supabase, usar o bloco de reversão do `.sql`.
+
+## 2026-11-21 — decisões Reprovar e Cancelar
+- Solicitação: além de aprovar, permitir reprovar e cancelar a análise.
+- Arquivos alterados: `index.html`.
+- Botões "Reprovar" e "Cancelar" pedem motivo obrigatório e confirmação; a decisão fica em `observacoes` e no `parecer` (status do banco não foi alterado). Reprovar/cancelar oculta a aba Documentos; arquivos já enviados permanecem no Storage.
+- A decisão pode ser mudada depois por uma pessoa (ex.: reprovada → aprovada). Coluna "Situação" em Clientes salvos e parecer no PDF.
+- Testes realizados: fluxo aprovar, reprovar, cancelar e reaprovar no navegador com salvamento simulado.
+- Testes pendentes: gravação real no Supabase.
