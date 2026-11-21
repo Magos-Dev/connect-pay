@@ -69,3 +69,8 @@
 - Faixa de indicadores no topo (clientes, aprovados com taxa, entradas aprovadas, montante total).
 - Gráfico de colunas verticais por cliente aprovado (entrada, parcela e total), anel de situação com % de aprovados e gráfico de área curva com o montante acumulado dos aprovados. Tabela de detalhamento mantida.
 - Gráficos em SVG, sem biblioteca externa; na tela estreita rolam na horizontal. Arquivos alterados: `index.html`. Testado com dados simulados (soma conferida).
+
+## 2026-11-21 — Dashboard em tamanho médio
+- Solicitação: gráficos grandes demais na página.
+- Gráficos agora têm altura fixa menor (colunas 240 px, área 220 px, anel 150 px) e usam a largura real do espaço, sem esticar em telas grandes. Conteúdo limitado a 1120 px de largura, indicadores menores e redesenho ao redimensionar a janela.
+- Arquivos alterados: `index.html`. Testado em janela de 1600 px com dados simulados.
