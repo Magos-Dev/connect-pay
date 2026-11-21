@@ -94,3 +94,11 @@
 - Todo bloco (painel) das abas Nova análise, Clientes salvos (incluindo os grupos Aprovados/Reprovados), Dashboard, Documentos e Backup recolhe/expande ao clicar no título (ou Enter/Espaço), com seta indicando o estado. O estado é lembrado no navegador e não se perde ao atualizar os dados; "Calcular análise" reabre o resultado.
 - Menu lateral com botão "Recolher menu" (modo só ícones, lembrado no navegador); oculto no celular.
 - Arquivos alterados: `index.html`. Testado no navegador com dados simulados.
+
+## 2026-11-21 — perfis: administrador e usuário comum
+- Solicitação: `megairati2020@gmail.com` administrador (acesso total); `Lojamegairati@gmail.com` usuário comum da loja Mega Irati, sem Dashboard.
+- Administrador: vê o Dashboard, o campo "Custo real do aparelho" e os clientes de todos os usuários (nova coluna "Cadastrado por"); ao editar um cliente de outro usuário, o dono do registro é preservado. Selo "Administrador" na barra do topo.
+- Usuário comum: sem o botão Dashboard, sem o campo de custo, vê só os próprios clientes. Qualquer e-mail fora da lista de administradores é tratado como usuário comum.
+- A lista de administradores fica em `ADMINS` no `index.html`. O bloqueio no navegador é de interface; a permissão real vem do `supabase-perfis.sql` (não executado), que libera o administrador pelo e-mail do login.
+- Também: gerador de ID com alternativa quando `crypto.randomUUID` não existe.
+- Testado com Supabase simulado (menu, abas, consultas, dono preservado). Pendente: rodar o SQL e testar com as duas contas reais.
