@@ -116,3 +116,8 @@
 - Coluna "Cobrança" agora tem um alternador por cliente: Manual ou Automático (salvo no cadastro do cliente, dentro de `observacoes`).
 - Automático: o cliente entra na "Fila de cobrança automática" quando a parcela está vencida, vence hoje ou em até 3 dias e ainda não foi cobrada hoje; o envio é pelo WhatsApp, com clique em Enviar. O sistema não tem servidor de mensagens, então não envia sozinho.
 - Arquivos alterados: `index.html`. Testado com Supabase simulado.
+
+## 2026-11-21 — Catálogo: correção de permissão
+- O Supabase respondeu "permission denied for table cp_catalogo": faltavam os GRANTs para o papel `authenticated`. Adicionados em `supabase-catalogo.sql` (quem já rodou o arquivo só precisa rodar os três comandos GRANT).
+- O aviso na tela do catálogo agora diferencia "tabela não existe" de "permissão negada" (antes mostrava sempre "não foi criado").
+- Arquivos alterados: `index.html`, `supabase-catalogo.sql`.

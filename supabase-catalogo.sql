@@ -28,6 +28,12 @@ create table if not exists public.cp_catalogo_custos (
 alter table public.cp_catalogo enable row level security;
 alter table public.cp_catalogo_custos enable row level security;
 
+-- Permissão de acesso às tabelas (sem isso o Supabase responde "permission denied for table").
+-- A segurança por linha continua nas políticas abaixo.
+grant usage on schema public to authenticated;
+grant select, insert, update, delete on public.cp_catalogo to authenticated;
+grant select, insert, update, delete on public.cp_catalogo_custos to authenticated;
+
 create policy "cp_catalogo_ler" on public.cp_catalogo for select to authenticated
   using (ativo = true or lower(auth.jwt() ->> 'email') = 'megairati2020@gmail.com');
 
