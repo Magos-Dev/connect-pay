@@ -57,3 +57,9 @@
 - No celular o menu vira uma barra horizontal no topo.
 - Arquivos alterados: `index.html`. Nenhuma função de análise, banco ou documentos foi alterada.
 - Testado no navegador com dados simulados; pendente: conferir no celular real e após republicar.
+
+## 2026-11-21 — aba Dashboard
+- Novo botão "Dashboard" (terceiro do menu, depois de Clientes salvos) com: gráfico rosca de aprovados/reprovados/em análise (mais canceladas), gráfico por cliente aprovado com entrada, parcela e total, tabela com totais e gráfico final do montante total dos aprovados.
+- Definições: entrada = caução inicial; total/montante = entrada + parcela × nº de mensalidades (mesma conta da simulação).
+- Gráficos feitos em HTML/CSS, sem biblioteca externa. Dados vindos dos mesmos registros de Clientes salvos.
+- Arquivos alterados: `index.html`. Testado no navegador com dados simulados (totais conferidos); pendente: dados reais.
