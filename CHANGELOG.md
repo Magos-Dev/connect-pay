@@ -110,3 +110,9 @@
 - Diferenças em relação ao MVloc: não há geração de PIX nem integração Asaas; "Cobrar" e "WhatsApp" abrem o WhatsApp com a mensagem pronta e registram o envio. O bloqueio do aparelho (MDM) continua manual. A coluna "Cobrança" mostra "Manual" ou a data do último envio.
 - Dados novos dentro de `observacoes` (sem mudar tabelas existentes): lista de cobranças enviadas. Arquivos alterados: `index.html`; novo `supabase-catalogo.sql`.
 - Testado no navegador com Supabase simulado (somas conferidas; fórmula do catálogo igual à da foto: 12x R$ 121,08, total R$ 2.202,96, lucro R$ 1.202,96). Pendente: rodar o SQL e testar com dados reais.
+
+## 2026-11-21 — Cobranças: sem coluna Contrato e modo Manual/Automático
+- Removida a coluna "Contrato" (código do contrato) da aba Cobranças.
+- Coluna "Cobrança" agora tem um alternador por cliente: Manual ou Automático (salvo no cadastro do cliente, dentro de `observacoes`).
+- Automático: o cliente entra na "Fila de cobrança automática" quando a parcela está vencida, vence hoje ou em até 3 dias e ainda não foi cobrada hoje; o envio é pelo WhatsApp, com clique em Enviar. O sistema não tem servidor de mensagens, então não envia sozinho.
+- Arquivos alterados: `index.html`. Testado com Supabase simulado.
