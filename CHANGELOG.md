@@ -83,3 +83,8 @@
 - Regras assumidas: entrada (caução) conta como recebida na aprovação; vencimentos mensais a partir do "Primeiro vencimento"; custo = custo real ou valor de referência.
 - Limite: só considera clientes cadastrados no Connect Pay. Nenhum dado do MVloc foi copiado para o código.
 - Arquivos alterados: `index.html`. Testado com dados simulados (somas conferidas à mão); pagamento testado com Supabase simulado. Pendente: gravação real no Supabase.
+
+## 2026-11-21 — Investimento e retorno
+- Novo painel "Investimento e retorno" no Dashboard: investimento total (custo dos aparelhos), retorno recebido, falta recuperar, retorno previsto, lucro previsto, retorno sobre o investimento, barra "% do investimento já voltou" e gráfico por cliente (investimento x recebido x previsto).
+- Custo do aparelho agora pode ser digitado direto na tabela "Lucro por contrato" (salva ao sair do campo). Vazio = usa o valor de referência.
+- O card "Investimento" saiu de "Saúde do negócio" para não duplicar. Arquivos alterados: `index.html`. Testado com dados simulados (somas conferidas) e Supabase simulado.
