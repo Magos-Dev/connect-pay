@@ -128,3 +128,10 @@
 - Exige rodar `supabase-catalogo-fotos.sql` (não executado): novas colunas em `cp_catalogo` e pasta pública `cp-catalogo` (fotos de produto), com envio, troca e exclusão só do administrador. Sem o SQL, o salvamento mostra um aviso explicando.
 - Trocar ou remover a foto apaga o arquivo antigo; excluir o aparelho apaga a foto. Arquivos alterados: `index.html`; novo `supabase-catalogo-fotos.sql`.
 - Testado com Supabase simulado (envio comprimido, troca, remoção, validação da bateria). Pendente: rodar o SQL e testar o envio real.
+
+## 2026-11-21 — Número de série e IMEI
+- Nova análise: campos "Número de série" e "IMEI (15 dígitos)" no cadastro do aparelho (salvos dentro de `observacoes`, sem mudar tabelas). O IMEI aceita espaços e traços, exige 15 dígitos, avisa se o dígito verificador não confere e pergunta antes de salvar um IMEI já usado em outro cliente.
+- Catálogo (administrador): série e IMEI por aparelho, exibidos na lista e preenchidos no cadastro ao escolher o aparelho. Ficam na tabela de custos, que o usuário comum não lê.
+- Cobranças › Regras de bloqueio: coluna "IMEI / Série" na lista de aparelhos a bloquear.
+- Exige rodar `supabase-catalogo-serie.sql` para a parte do catálogo (colunas novas e IMEI único). Arquivos alterados: `index.html`; novo `supabase-catalogo-serie.sql` (não executado).
+- Testado com Supabase simulado. Pendente: rodar o SQL e testar com dados reais.
