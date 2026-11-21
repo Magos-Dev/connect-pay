@@ -121,3 +121,10 @@
 - O Supabase respondeu "permission denied for table cp_catalogo": faltavam os GRANTs para o papel `authenticated`. Adicionados em `supabase-catalogo.sql` (quem já rodou o arquivo só precisa rodar os três comandos GRANT).
 - O aviso na tela do catálogo agora diferencia "tabela não existe" de "permissão negada" (antes mostrava sempre "não foi criado").
 - Arquivos alterados: `index.html`, `supabase-catalogo.sql`.
+
+## 2026-11-21 — Catálogo: detalhes, bateria e foto
+- Cada aparelho do catálogo ganhou três campos: Detalhes (texto até 500 caracteres), Bateria (% inteiro de 0 a 100) e Foto (JPG, PNG ou WEBP, reduzida para até 1000 px antes do envio).
+- Lista do administrador e do usuário comum mostram a foto, o selo da bateria (verde a partir de 85%, amarelo de 70 a 84%, vermelho abaixo de 70%) e os detalhes. Custo, taxa e lucro continuam só para o administrador.
+- Exige rodar `supabase-catalogo-fotos.sql` (não executado): novas colunas em `cp_catalogo` e pasta pública `cp-catalogo` (fotos de produto), com envio, troca e exclusão só do administrador. Sem o SQL, o salvamento mostra um aviso explicando.
+- Trocar ou remover a foto apaga o arquivo antigo; excluir o aparelho apaga a foto. Arquivos alterados: `index.html`; novo `supabase-catalogo-fotos.sql`.
+- Testado com Supabase simulado (envio comprimido, troca, remoção, validação da bateria). Pendente: rodar o SQL e testar o envio real.
