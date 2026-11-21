@@ -49,3 +49,11 @@
 ## 2026-11-21 — blocos separados em Clientes salvos
 - A lista agora tem um bloco verde "Aprovados" e um bloco vermelho "Reprovados", cada um com contador. Clientes em análise ou cancelados ficam num terceiro bloco neutro, para não sumirem da lista.
 - Arquivos alterados: `index.html`. Testado no navegador com registros simulados.
+
+## 2026-11-21 — menu lateral e barra do usuário
+- Solicitação: menu lateral parecido com o dashboard de referência, com o usuário no topo.
+- Menu lateral fixo (Análises: Nova análise, Clientes salvos, Documentos; Sistema: Backup e segurança) com ícones, item ativo em destaque verde e selo vermelho com a quantidade de clientes em análise.
+- Barra superior com título da página, nome/e-mail do usuário, avatar com inicial e botão Sair. A tela de login não mudou.
+- No celular o menu vira uma barra horizontal no topo.
+- Arquivos alterados: `index.html`. Nenhuma função de análise, banco ou documentos foi alterada.
+- Testado no navegador com dados simulados; pendente: conferir no celular real e após republicar.
