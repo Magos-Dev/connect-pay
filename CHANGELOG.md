@@ -41,3 +41,11 @@
 - A decisão pode ser mudada depois por uma pessoa (ex.: reprovada → aprovada). Coluna "Situação" em Clientes salvos e parecer no PDF.
 - Testes realizados: fluxo aprovar, reprovar, cancelar e reaprovar no navegador com salvamento simulado.
 - Testes pendentes: gravação real no Supabase.
+
+## 2026-11-21 — selos coloridos em Clientes salvos
+- Coluna "Situação" agora usa blocos coloridos: Aprovada (verde), Reprovada (vermelho), Cancelada (cinza), Em análise (amarelo).
+- Arquivos alterados: `index.html`. Testado no navegador com registros simulados.
+
+## 2026-11-21 — blocos separados em Clientes salvos
+- A lista agora tem um bloco verde "Aprovados" e um bloco vermelho "Reprovados", cada um com contador. Clientes em análise ou cancelados ficam num terceiro bloco neutro, para não sumirem da lista.
+- Arquivos alterados: `index.html`. Testado no navegador com registros simulados.
