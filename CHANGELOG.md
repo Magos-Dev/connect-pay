@@ -135,3 +135,17 @@
 - Cobranças › Regras de bloqueio: coluna "IMEI / Série" na lista de aparelhos a bloquear.
 - Exige rodar `supabase-catalogo-serie.sql` para a parte do catálogo (colunas novas e IMEI único). Arquivos alterados: `index.html`; novo `supabase-catalogo-serie.sql` (não executado).
 - Testado com Supabase simulado. Pendente: rodar o SQL e testar com dados reais.
+
+## 2026-11-21 — Catálogo: várias fotos por aparelho
+- Solicitação: adicionar várias fotos, não só uma.
+- Formulário do aparelho aceita até 8 fotos de uma vez (cada uma reduzida para até 1000 px). A primeira é a capa; dá para trocar a capa (★), remover (✕) e acrescentar mais ao editar.
+- Na lista, a capa mostra "+N" quando há mais fotos; clicar abre uma galeria com setas (também teclado) e contador. Excluir o aparelho apaga todas as fotos; remover uma foto apaga o arquivo dela.
+- Compatível com a foto única anterior (`foto_path` continua guardando a capa). Exige rodar `supabase-catalogo-fotos-multiplas.sql` (não executado): coluna `fotos` e cópia da foto antiga.
+- Arquivos alterados: `index.html`; novo `supabase-catalogo-fotos-multiplas.sql`. Testado com Supabase simulado (envio, capa, remoção, limite de 8, galeria).
+
+## 2026-11-21 — Catálogo: janela de detalhes, disponibilidade e simulação de entrada
+- Clicar no aparelho (foto, nome ou botão Detalhes) abre uma janela sobreposta com galeria (setas, miniaturas, teclado), selo Disponível/Indisponível, bateria, condição, detalhes, valor de venda e entrada. O administrador também vê série, IMEI, custo e taxa.
+- Disponível: campo "Disponível" (antes "Ativo"). Usuário comum passa a ver todos os aparelhos, os indisponíveis esmaecidos e no fim da lista; só os disponíveis podem ser simulados ou escolhidos no cadastro.
+- Simulação: informando a entrada (dentro do mínimo e do máximo do aparelho), mostra o valor restante e a parcela e o total em 4, 6, 8, 12, 16, 18 e 24 vezes (administrador também vê o lucro). O usuário comum usa a função `cp_simular_catalogo` do Supabase, que calcula sem expor taxa nem custo.
+- Exige rodar `supabase-catalogo-disponibilidade.sql` (não executado): libera a leitura de todos os aparelhos e cria a função de simulação. Sem ele o usuário comum continua vendo só os disponíveis e a simulação avisa o que fazer; o administrador simula normalmente.
+- Substitui a galeria em tela cheia anterior. Arquivos alterados: `index.html`; novo `supabase-catalogo-disponibilidade.sql`. Testado com Supabase simulado (simulação de R$ 500 de entrada, limites, indisponível).
